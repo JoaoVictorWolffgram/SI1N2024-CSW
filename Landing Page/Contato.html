@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #303030;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 50%;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #000000;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffb8b8;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #ffffff;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #a5000e;
+            border: none;
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #680101;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="home.html">home</a>
+                    </li>
+
+                </ul>
+            </nav>
+            <h2>Solicitação de Serviços</h2>
+            <form action="/enviar_servico" method="post">
+
+
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Tipo de Pessoa:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="tipo_pessoa" value="fisica" required> Pessoa Física</label>
+                        <label><input type="radio" name="tipo_pessoa" value="juridica" required> Pessoa Jurídica</label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Melhor Horário de Contato:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="horario_contato[]" value="manha"> Manhã</label>
+                        <label><input type="checkbox" name="horario_contato[]" value="tarde"> Tarde</label>
+                        <label><input type="checkbox" name="horario_contato[]" value="noite"> Noite</label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="servico">Tipo de Serviço:</label>
+                    <select id="servico" name="servico" required>
+                        <option value="" disabled selected>Selecione o tipo de serviço</option>
+                        <option value="consultoria">Consultoria</option>
+                        <option value="desenvolvimento">Desenvolvimento de Software</option>
+                        <option value="design">Design Gráfico</option>
+                        <option value="marketing">Marketing Digital</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="descricao">Descrição do que deseja contratar:</label>
+                    <textarea id="descricao" name="descricao"
+                        placeholder="Escreva uma breve descrição do serviço que deseja contratar" required></textarea>
+                </div>
+
+
+                <input type="submit" value="Enviar Solicitação">
+            </form>
+        </div>
+
+    </body>
+
+</html>
